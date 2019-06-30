@@ -1,0 +1,51 @@
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+<input type="hidden" value= "user._id"  id="userId">
+<div id="account-form-container" class="center-vertical">
+	<form class="card card-body bg-light" id="account-form" method="post">
+		<h2>
+			<h6 id="sub">Please tell us a little about yourself.</h6>
+			<hr/>
+				<div class="form-group row"><label class="col-sm-3 col-form-label col-form-label-sm">Name</label>
+					<div class="col-sm-9">
+						<input class="form-control" id="name-tf" type="text" name="name" value= "user.name" />
+					</div>
+				</div>
+				<div class="form-group row"><label class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+					<div class="col-sm-9">
+						<input class="form-control" id="email-tf" type="email" name="email" value="user.email" />
+					</div>
+				</div>
+				<div class="form-group row margin-zero"><label class="col-sm-3 col-form-label col-form-label-sm">Location</label>
+					<div class="col-sm-9">
+						<select class="custom-select" id="country-list" name="country">
+							<% //for(var i=0; i < countries.length; i++) { %>
+							<% for each item In countries { %>
+								<!--option value="<%//= countries[i].name %>"><%//= countries[i].name %></option-->
+								<option value="<%= item.name %>" <%= "selected='user.country'" %> ><%= item.name %></option>
+								<!--option value="<%//= item.name %>" selected="<%//= item.name %>== 'user.country'"><%//= item.name %></option-->
+							<% next %>
+							<% //} %>
+						</select>
+					</div>
+				</div>
+			<hr/>
+				<div class="form-group row"><label class="col-sm-3 col-form-label col-form-label-sm">Name</label>
+					<div class="col-sm-9">
+						<input class="form-control" id="name-tf" type="text" name="name" value= "user.name" />
+					</div>
+				</div>
+				<div class="form-group row"><label class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+					<div class="col-sm-9">
+						<input class="form-control" id="email-tf" type="email" name="email" value="user.email" />
+					</div>
+				</div>
+			<hr/>
+				<div class="form-buttons">
+					<button class="btn btn-outline-dark" type="button" id="account-form-btn1"></button>
+					<button class="btn btn-primary" type="submit" id="account-form-btn2"></button>
+				</div>
+		</h2>
+	</form>
+</div>
