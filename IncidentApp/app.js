@@ -30,7 +30,7 @@ if (app.get('env') != 'live') {
 //mongoose.connect(database.localurl); mongodb://localhost/inc
 //mongoose.connect(database.remoteurl);
 
-var connection = mongoose.connect(database.localurl, function (err) {
+var connection = mongoose.connect(database.remoteurl, function (err) {
     console.log(database.remoteurl);
     if (err) { console.log(err) }
     var admin = new mongoose.mongo.Admin(mongoose.connection.db);
